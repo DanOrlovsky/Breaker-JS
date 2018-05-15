@@ -1,0 +1,11 @@
+﻿App_Data
+App_Start
+bin
+obj
+Controllers
+fonts
+Models
+Views
+ApplicationInsights.config
+Global.asax
+Web.config
