@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "BREAKOUT-JS";
+}
+<h1></h1>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-4 col-md-push-4">
+        <h2 class="text-center">Breakout-JS</h2>
+        <h2 class="text-center">Press [SPACE] to Launch</h2>
+        <h2 style="float: left;">Bonus Timer <span id="bonusTimer"></span></h2><h2 style="float: right;"><span id="bonusDisplay"></span></h2>
+    </div>
+</div>
+
+<canvas id="breakoutCanvas" width="800" height="500"></canvas>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-push-2 col-md-4 col-md-push-4">
+        <h2 id="gameover" style="display:none">GAME OVER!!</h2>
+        <h2>Player's Score: <span id="score"></span></h2>
+        
+    </div>
+</div>
+<hr />
+<div class="row" id="showHighScores">
+    @{ Html.RenderAction("ShowHighScores", "Home"); }
+</div>
+
+<div id="saveScore" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Game Over!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You racked up <span id="scoreDisplay"></span> points!</p>
+                <p>Enter your name to save your score!</p>
+                <input class="form-control" maxlength="10" id="playerName" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="savePlayer">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/game.js"></script>
+    <script>
+        $(window).load(() => {
+            $("loading-screen").css("display", "none");
+        });
+        $(document).ready(() => {
+            resetGame();
+            //requestAnimationFrame(gameLoop);
+        });
+    </script>
+}
+

@@ -1,0 +1,25 @@
+﻿@using breaker_js.Models
+@model List<Score>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-md-push-3">
+        <h2>TOP SCORES: </h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Score score in Model)
+                {
+                    <tr>
+                        <td>@score.Name</td>
+                        <td>@score.PlayerScore</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

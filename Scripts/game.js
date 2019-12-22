@@ -228,12 +228,13 @@ function drawBricks() {
 
 /// CHECKS IF THERE IS ONE BRICK ON THE SCREEN WITH A STATUS OF 1 - IF SO, THE GAME IS STILL IN SESSION
 function checkWin() {
-    for (var c = 0; c < brickColumnCount; c++) {
-        for (var r = 0; r < brickRowCount; r++) {
-            if (bricks[c][r].status === 1) return false;
-        }
-    }
-    return true;
+    //for (var c = 0; c < brickColumnCount; c++) {
+    //    for (var r = 0; r < brickRowCount; r++) {
+    //        if (bricks[c][r].status === 1) return false;
+    //    }
+    //}
+    const isWin = bricks.filter(b => b.filter(c => c.status === 1));
+    return isWin.length > 0;
 }
 
 /// CHECKS FOR A COLLISSION WITH ANY BRICKS ON THE SCREEN
